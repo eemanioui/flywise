@@ -2,7 +2,7 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 import './App.css';
 import { routes, airports, findAirport } from './data';
 import { distance, removeClassName } from '../utils/helpers';
-import { Airport, Route } from './types'; // Import the Airport type
+import { Airport, Route } from './types'; 
 
 const App = (): JSX.Element => {
   const [start, setStart] = useState<string>("");
@@ -39,7 +39,7 @@ const App = (): JSX.Element => {
   const filtered = (): string[] => {
     let paths: Record<string, boolean> = {};
 
-    routes.forEach(route => {
+    routes.forEach((route: Route) => {
       let sortedRoute = [route.src, route.dest].sort((a, b) => a.localeCompare(b)).join('-');
 
       if (!paths[sortedRoute]) {
@@ -69,7 +69,7 @@ const App = (): JSX.Element => {
       visited[current.code] = true;
       unvisited = unvisited.filter(airport => airport.code !== current.code);
 
-      routes.filter(route => route.src === current.code || route.dest === current.code).forEach(route => {
+      routes.filter((route: Route) => route.src === current.code || route.dest === current.code).forEach(route => {
         let adjAirport = findAirport(route.dest) as Airport;
 
         if (!visited[route.dest]) {
@@ -122,7 +122,7 @@ const App = (): JSX.Element => {
         reachableAirports[current] = true;
       }
 
-      routes.filter(route => route.src === current || route.dest === current)
+      routes.filter((route: Route) => route.src === current || route.dest === current)
         .forEach(route => {
           if (!reachableAirports[route.dest] && route.dest !== start && queue.indexOf(route.dest) === -1) {
             queue.push(route.dest);
