@@ -1,0 +1,73 @@
+html, body {
+  margin: 0;
+}
+
+.header {
+  background-color: #03a285;
+  height: 4rem;
+  padding: 0.25em;
+  color: rgb(255, 254, 254);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.5em;
+  font-family:'Franklin Gothic Medium';
+}
+
+form, h3 {
+  margin-left: 20px;
+}
+
+svg.map {
+  width: 100vw;
+  height: 100vh;
+}
+
+svg circle:hover {
+  cursor: crosshair;
+}
+
+svg path {
+  stroke: black;
+  stroke-width: 0.2;
+  opacity: 0.3;
+}
+
+svg path.shortPath {
+  stroke: yellow;
+  stroke-width: .5;
+  opacity: 1;
+}
+
+svg circle.destination {
+  stroke: red;
+  stroke-width: .3;
+  fill: transparent;
+  r: 0.8;
+}
+
+svg circle.source {
+  fill: lightgreen;
+  r: 0.5;
+}
+
+svg circle.airport {
+  fill: white;
+  stroke: black;
+  stroke-width: .1;
+  r: .5;
+}
+
+svg circle.sourceAirport {
+  stroke-width: 0;
+  fill: #0F0;
+  r: 1.5;
+}
+
+svg circle.destinationAirport {
+  stroke-width: 0;
+  fill: #F00;
+  r: 1.5;
+}
